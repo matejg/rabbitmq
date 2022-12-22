@@ -33,7 +33,7 @@ final class QueueDeclarator
 		$connection = $this->connectionFactory->getConnection($queueData['connection']);
 
 		$connection->getChannel()->queueDeclare(
-			$name,
+			$queueData['name'],
 			$queueData['passive'],
 			$queueData['durable'],
 			$queueData['exclusive'],

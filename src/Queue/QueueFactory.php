@@ -67,7 +67,7 @@ final class QueueFactory
 		}
 
 		return new Queue(
-			$name,
+			$queueData['name'],
 			$connection
 		);
 	}

@@ -19,6 +19,7 @@ final class ExchangesHelper extends AbstractHelper
 	 * @var array
 	 */
 	protected array $defaults = [
+		'name' => null,
 		'connection' => 'default',
 		// direct/topic/headers/fanout
 		'type' => 'direct',
@@ -84,6 +85,10 @@ final class ExchangesHelper extends AbstractHelper
 
 					$exchangeConfig['queueBindings'][$queueName] = $queueBindingConfig;
 				}
+			}
+
+			if ($exchangeConfig['name'] === null) {
+				$exchangeConfig['name'] = $exchangeName;
 			}
 
 			$exchangesConfig[$exchangeName] = $exchangeConfig;

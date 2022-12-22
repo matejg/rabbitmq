@@ -17,6 +17,7 @@ final class QueuesHelper extends AbstractHelper
 	 * @var array
 	 */
 	protected array $defaults = [
+		'name' => null,
 		'connection' => 'default',
 		'passive' => false,
 		'durable' => true,
@@ -33,10 +34,16 @@ final class QueuesHelper extends AbstractHelper
 		$queuesConfig = [];
 
 		foreach ($config as $queueName => $queueData) {
-			$queuesConfig[$queueName] = $this->extension->validateConfig(
+			$queueConfig = $this->extension->validateConfig(
 				$this->getDefaults(),
 				$queueData
 			);
+
+			if ($queueConfig['name'] === null) {
+				$queueConfig['name'] = $queueName;
+			}
+
+			$queuesConfig[$queueName] = $queueConfig;
 		}
 
 		$queuesDataBag = $builder->addDefinition($this->extension->prefix('queuesDataBag'))

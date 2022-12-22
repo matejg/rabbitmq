@@ -85,7 +85,7 @@ final class ExchangeFactory
 		}
 
 		return new Exchange(
-			$name,
+			$exchangeData['name'],
 			$queueBindings,
 			$connection
 		);

@@ -39,7 +39,7 @@ final class ExchangeDeclarator
 		$connection = $this->connectionFactory->getConnection($exchangeData['connection']);
 
 		$connection->getChannel()->exchangeDeclare(
-			$name,
+			$exchangeData['name'],
 			$exchangeData['type'],
 			$exchangeData['passive'],
 			$exchangeData['durable'],
@@ -52,7 +52,7 @@ final class ExchangeDeclarator
 		if ($exchangeData['queueBindings'] !== []) {
 			foreach ($exchangeData['queueBindings'] as $queueName => $queueBinding) {
 				$queue = $this->queueFactory->getQueue($queueName);
-				
+
 				if ($queueBinding['routingKeys'] !== []) {
 					$routingKeysToBind = $queueBinding['routingKeys'];
 				} else {
@@ -62,7 +62,7 @@ final class ExchangeDeclarator
 				foreach ($routingKeysToBind as $routingKey) {
 					$connection->getChannel()->queueBind(
 						$queue->getName(),
-						$name,
+						$exchangeData['name'],
 						$routingKey,
 						$queueBinding['noWait'],
 						$queueBinding['arguments']
