@@ -53,9 +53,13 @@ final class ExchangeDeclarator
 			foreach ($exchangeData['queueBindings'] as $queueName => $queueBinding) {
 				$queue = $this->queueFactory->getQueue($queueName);
 
-				if ($queueBinding['routingKeys'] !== []) {
+				$routingKeysToBind = [];
+
+				if (isset($queueBinding['routingKeys'])
+					&& $queueBinding['routingKeys'] !== []
+				) {
 					$routingKeysToBind = $queueBinding['routingKeys'];
-				} else {
+				} elseif (isset($queueBinding['routingKey'])) {
 					$routingKeysToBind = [$queueBinding['routingKey']];
 				}
 
