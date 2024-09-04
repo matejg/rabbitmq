@@ -32,16 +32,20 @@ For details on how to use this package, check out our [documentation](.docs).
 
 ## Versions
 
-| State  | Version      | Branch   | Nette        | PHP     |
-|--------|--------------|----------|--------------|---------|
-| dev    | `^9.0.0`     | `master` | `2.4 / 3.0+` | `>=7.4` |
-| stable | `^8.0.0`     | `master` | `3.0+`       | `>=7.4` |
+| State  | Version   | Branch   | Nette  | PHP     |
+|--------|-----------|----------|--------|---------|
+| dev    | `^10.0.0` | `master` | `3.2+` | `>=8.1` |
+| stable | `^9.5.0`  | `master` | `3.1+` | `>=7.4` |
 
 ## Development
 
 See [how to contribute](https://contributte.org/contributing.html) to this package.
 
 This package is currently maintaining by these authors.
+
+<a href="https://github.com/f3l1x">
+	<img width="80" height="80" src="https://avatars0.githubusercontent.com/u/538058?v=3&s=80">
+</a>
 
 <a href="https://github.com/paveljanda">
   <img width="80" height="80" src="https://avatars2.githubusercontent.com/u/1488874?v=3&s=80">
